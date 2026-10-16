@@ -1,0 +1,7 @@
+clip1 left out (30 pushes): median error 27.3 mm, 9.7 deg   [box really moved: 53.0 mm, 13.4 deg]
+clip2 left out (29 pushes): median error 24.2 mm, 11.9 deg   [box really moved: 31.6 mm, 16.2 deg]
+clip3 left out (23 pushes): median error 32.1 mm, 8.2 deg   [box really moved: 52.9 mm, 7.4 deg]
+clip4 left out (25 pushes): median error 32.6 mm, 12.6 deg   [box really moved: 43.0 mm, 13.7 deg]
+clip5 left out (43 pushes): median error 51.1 mm, 40.3 deg   [box really moved: 36.3 mm, 19.2 deg]
+average over the 5 clips: 33.5 mm, 16.6 deg   [box really moved: 43.4 mm, 14.0 deg]
+wrote results/invariants/no-copies_10.json

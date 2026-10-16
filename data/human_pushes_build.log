@@ -1,0 +1,7 @@
+clip1: 30 pushes kept; dropped: 28 lost tracking, 2 moved by hand, 5 too short
+clip2: 29 pushes kept; dropped: 29 lost tracking, 3 moved by hand, 4 too short
+clip3: 23 pushes kept; dropped: 33 lost tracking, 6 too short
+clip4: 25 pushes kept; dropped: 31 lost tracking, 3 moved by hand, 8 too short
+clip5: 43 pushes kept; dropped: 35 lost tracking, 8 too short
+gap at first contact: finger 17.7 mm, robot ball 8.0 mm -> fingertip moved 9.7 mm forward along each push
+wrote 150 pushes, 2061 rows, to data/human_pushes.csv

@@ -1,0 +1,7 @@
+150 pushes, 1911 steps of 0.1 s
+network 1/5: 1895 steps x 8 versions, final loss 0.740 (mm or degrees, squared)
+network 2/5: 1879 steps x 8 versions, final loss 0.705 (mm or degrees, squared)
+network 3/5: 1880 steps x 8 versions, final loss 0.731 (mm or degrees, squared)
+network 4/5: 1877 steps x 8 versions, final loss 0.749 (mm or degrees, squared)
+network 5/5: 1935 steps x 8 versions, final loss 0.730 (mm or degrees, squared)
+trained in 60 s, saved to models/video.pt

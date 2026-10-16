@@ -1,0 +1,52 @@
+{
+  "clips": {
+    "clip1": {
+      "pushes": 30,
+      "dropped": {
+        "lost tracking": 28,
+        "moved by hand": 2,
+        "kept gliding": 0,
+        "too short": 5
+      }
+    },
+    "clip2": {
+      "pushes": 29,
+      "dropped": {
+        "lost tracking": 29,
+        "moved by hand": 3,
+        "kept gliding": 0,
+        "too short": 4
+      }
+    },
+    "clip3": {
+      "pushes": 23,
+      "dropped": {
+        "lost tracking": 33,
+        "moved by hand": 0,
+        "kept gliding": 0,
+        "too short": 6
+      }
+    },
+    "clip4": {
+      "pushes": 25,
+      "dropped": {
+        "lost tracking": 31,
+        "moved by hand": 3,
+        "kept gliding": 0,
+        "too short": 8
+      }
+    },
+    "clip5": {
+      "pushes": 43,
+      "dropped": {
+        "lost tracking": 35,
+        "moved by hand": 0,
+        "kept gliding": 0,
+        "too short": 8
+      }
+    }
+  },
+  "gap_finger_m": 0.01772671585768585,
+  "gap_robot_m": 0.008,
+  "shift_m": 0.00972671585768585
+}
