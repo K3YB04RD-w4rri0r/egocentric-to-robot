@@ -242,24 +242,24 @@ Most choices came from the same question: what would make my finger and the robo
 
 For the filming, I went for whatever needed no measuring that I could get my hands on. An A4 sheet is the same size everywhere, so it gives the camera's position and the scale quickly. The box got two green dots in opposite corners, their middle is exactly the box's centre, and unlike the white strip I initially started with, green doesn't get mixed up with a light grey floor.
 
-The individual models were chosen to be small (4 numbers in and 3 out) and was the best representation I could come up with. 150 pushes is also small, so that was also a factor. Objectively this functions pretty well since the problem is so simple. The size is also why I allowed myself to bag multiple estimators, although the initial idea was to use a trick I came across in semi-supervised learning where you can quantify the "confidence" of a prediction directly by evaluating to what extent the estimators agree.
+The individual models were chosen to be small (4 numbers in and 3 out), because the representation (the box's point of view) was the best I could come up with and does most of the work. 150 pushes is also small, so that was also a factor. Objectively this functions pretty well since the problem is so simple. The size is also why I allowed myself to bag multiple estimators, although the initial idea was to use a trick I came across in semi-supervised learning where you can quantify the "confidence" of a prediction directly by evaluating to what extent the estimators agree.
 
 The test split was selected on whole clips the model never saw, because pushes from one clip share the light and maybe the way I held my finger.
 
 Also, the planner score might seem random. Not gonna lie, it was because the first tolerance I tested was 15 mm and 10 degrees, which is why I used score = mm off ÷ 15 + degrees off ÷ 10.
 
-The robot also looks at the real box again before every push and plans the next one from there. That's how it lands within 5 mm and 1° even though the model is about 5 mm off on a push it has never seen, its errors never get the chance to add up, and I didn't study the question of long term planning in the agent.
+The robot also looks at the real box again before every push and plans the next one from there. That's how it lands within 5 mm and 1° even though the model is about 5 mm off on a push it has never seen: its errors never get the chance to add up. Beyond looking two pushes ahead (Results 6), I didn't study longer-term planning.
 
 
 ## What worked and what didn't
 
 The results and the tracking above are what worked. This is what didn't, and what I changed.
 
-As I said, this project was a race against time. And having done a lot of hackathons, rather than trying to fix every detail, I tried to save every step of the process and log what could have gone wrong, that way I could have something to check out when something didn't work. My goal was exactly 3 things: an MVP, keeping track of the gaps with what I interpret, and finally, the first things to look at if something broke.
+As I said, this project was a race against time. Having done a lot of hackathons, I didn't try to fix every detail: I saved the output of every step and logged what could have gone wrong, so I'd have something to look at when something didn't work. My goal was exactly 3 things: an MVP, a record of the gaps in what I claim, and a list of the first things to look at if something broke.
 
-This is why the things that broke were mostly blocking steps, rather than incremental trial and error.
+Because of this, when something broke, it showed up as one step clearly failing, and I knew which one, rather than something I had to hunt down by trial and error.
 
-Maybe 30% of my time went into the tracking, for a problem this basic, and probably seems trivial to you guys:
+Maybe 30% of my time went into the tracking, for a problem that probably seems trivial to you guys:
 - The **white strip** was found in only 25 to 35% of frames: on a light grey floor, white and grey only differ in brightness. Two green dots brought it to 74 to 94%, which I found by asking Claude to plot maps of the selected colors.
 - The **drawn box came out 21° off**, because in the initial draft of the code, Claude used a measured angle offset. The fix I gave it was to use the property that dots sit on the diagonal and the measured values are correct, so the sides are 45° from the line through them. I was surprised LLMs could not come up with this fix.
 - The **A4 sheet merged with a light patch of floor**, and the camera came out 26 cm above the floor instead of 46 (which I read in the logs). Trying several brightness levels and keeping the best-fitting sheet fixed it.
@@ -291,7 +291,7 @@ One I would still like to do: map which kinds of pushes my data covers (where on
 - How robust the model is to tiny changes in a push (do its predictions change smoothly, or jump?) was never tested.
 - Each point of the invariants chart is a single run, and the planner tests use 30 tasks, there are no error bars.
 - The planner's score (mm ÷ 15 + degrees ÷ 10) was never compared with other weightings.
-- Planning with a hand-written physics model, or a policy trained by RL, was never tried, so nothing here shows that a learned model is the best approach. (Although nothing could've been inferred from this setup)
+- Planning with a hand-written physics model, or a policy trained by RL, was never tried, so nothing here shows that a learned model is the best approach. (Though on a task this simple, such a comparison wouldn't have told much either.)
 
 
 ## Repo structure
@@ -358,7 +358,7 @@ MUJOCO_GL=egl python results/make_figures.py      # or name some: tracking robot
 
 ## Use of AI
 
-Most of the code was written by Claude. I then cut off most of the code. The idea, the setup, the filming and most decisions are mine. Some details were Claude's suggestions that I kept, such as testing the model on whole pushes rather than single 0.1 s steps, and choosing among random candidate pushes rather than optimising.
+Most of the code was written by Claude. I then cut out a large part of it that wasn't needed. The idea, the setup, the filming and most decisions are mine. Some details were Claude's suggestions that I kept, such as testing the model on whole pushes rather than single 0.1 s steps, and choosing among random candidate pushes rather than optimising.
 
 
 
